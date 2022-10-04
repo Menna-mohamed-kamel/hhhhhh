@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    *{
+        font-family: "Lucida Console", "Courier New", monospace;
+    }
+    #main{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 100px;
+        border: 5px solid rgb(141, 95, 184);
+        height: auto;
+        padding: 3px;
+    }
+    #left{
+        flex-basis: 25%;
+        background-image: url('https://w0.peakpx.com/wallpaper/282/311/HD-wallpaper-magic-clouds-galaxy-space-pink-sky-stars-fantasy.jpg');
+    }
+    #left h1{
+        font-size: 50px;
+        padding: 10px;
+
+    }
+    #left p {
+        font-size: 20px;
+    }
+    #right{
+        flex-grow: 2;
+        background-color: rgb(117, 110, 184);
+        margin-left: 5px;
+        padding: 30px;
+    }
+    .gender{
+        margin: 20px;
+        font-size: 25px;
+    }
+    label{
+        font-size: 25px;
+    }
+    table{
+        width: 100%;
+        border: 1px solid beige;
+        border-collapse: collapse;
+    }
+    td{
+        border: 1px solid beige;
+        text-align: center;
+        padding: 10px;
+        
+    }
+    .tb1 td:last-child{
+        width: 50%;
+    }
+    td:first-child{
+        text-align: left;
+        width: 20%;
+    }
+    .tb2{
+        margin-top: 20px;
+    }
+    #right p {
+        border: 1px solid black;
+        display: inline-block;
+        font-size: 40px;
+        float: right;
+        margin-right: 50px;
+        padding: 20px;
+        background-color: white;
+        
+    }
+    #right p:hover{
+        background-color: rgb(136, 106, 219);
+        cursor: pointer;
+    }
+    
+  </style>
+  <script>
+    
+    function getfname(){
+        var fname=document.getElementById('fname').value;
+        var rel= /^[a-zA-Z\s\-]{2,15}$/;
+
+        if(rel.test(fname)){
+            document.getElementById("fir").style.color="green";
+            document.getElementById("fir").innerHTML="<strong>Valid</strong>";
+        }
+        else{
+            document.getElementById("fir").style.color="red";
+            document.getElementById("fir").innerHTML="<strong>Required(2-15 letters)</strong>";
+        }
+    }
+    function getlname(){
+        var lname=document.getElementById('lname').value;
+        var rel= /^[a-zA-Z\s\-]{2,15}$/;
+
+        if(rel.test(lname)){
+            document.getElementById("sec").style.color="green";
+            document.getElementById("sec").innerHTML="<strong>Valid</strong>";
+        }
+        else{
+            document.getElementById("sec").style.color="red";
+            document.getElementById("sec").innerHTML="<strong>Required(2-15 letters)</strong>";
+        }
+    }
+    function getemail(){
+        var email=document.getElementById("email").value;
+        var rel=  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        if(rel.test(email)){
+            document.getElementById("thir").style.color="green";
+            document.getElementById("thir").innerHTML="<strong>Valid</strong>";
+        }
+        else{
+            document.getElementById("thir").style.color="red";
+            document.getElementById("thir").innerHTML="<strong>Not valid</strong>";
+        }
+    }
+    function getpass(){
+        var pass=document.getElementById('pass').value;
+        var rel= /^[a-zA-Z0-9!#$%&]{8,100}$/;
+
+        if(rel.test(pass)){
+            document.getElementById("four").style.color="green";
+            document.getElementById("four").innerHTML="<strong>Valid</strong>";
+        }
+        else{
+            document.getElementById("four").style.color="red";
+            document.getElementById("four").innerHTML="<strong>Required(more than 8)</strong>";
+        }
+    }
+    function getcpass(){
+        var cpass=document.getElementById('cpass').value;
+        var pass=document.getElementById('pass').value;
+
+
+        if(pass == cpass & cpass!=""){
+            document.getElementById("five").style.color="green";
+            document.getElementById("five").innerHTML="<strong>Valid</strong>";
+        }
+        else{
+            document.getElementById("five").style.color="red";
+            document.getElementById("five").innerHTML="<strong>Incorrect</strong>";
+        }
+    }
+    function getphone(){
+        var phone=document.getElementById('phone').value;
+        var rel= /^[0-9]{3}-[0-9]{3}-[0-9]{3}$/;
+
+        if(rel.test(phone)){
+            document.getElementById("six").style.color="green";
+            document.getElementById("six").innerHTML="<strong>Valid</strong>";
+        }
+        else{
+            document.getElementById("six").style.color="red";
+            document.getElementById("six").innerHTML="<strong>Like xxx-xxx-xxx</strong>";
+        }
+    }
+
+  </script>
+
+</head>
+
+
+<body>
+<div id="main">
+    <div id="left">
+        <h1>LOGIN</h1>
+        <p>You can have an account in our site to benfit from our service.<br><br>
+            Learn the coffing language you love anf intersting in. </p>
+
+    </div>
+    
+    
+    <div id="right">
+        <h1>Form</h1>
+        <table class="tb1">
+            <tr>
+              <td><label for="fname">First name: </label></td> 
+              <td><input type="text" id="fname" name="fname" onblur="getfname()"></td>
+              <td id="fir"></td>
+            </tr>
+            <tr>
+                <td><label for="lname">Last name: </label></td> 
+                <td><input type="text" id="lname" name="lname" onblur="getlname()"></td>
+                <td id="sec"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Enter Email:</label></td>
+                <td><input type="email" id="email" name="email" placeholder="xxx123@xxx.xxx" onblur="getemail()" required/></td>
+                <td id="thir"></td>
+            </tr>
+            <tr>
+                <td><label for="pass">Enter Password:</label></td>
+                <td><input type="password" id="pass" name="pass" onblur="getpass()" required/></td>
+                <td id="four"></td>
+            </tr>
+            <tr>
+                <td><label for="cpass">Confirm Password:</label></td>
+                <td><input type="password" id="cpass" name="cpass" onblur="getcpass()" required/></td>
+                <td id="five"></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Phone number:</label></td>
+                <td><input type="text" id="phone" name="phone" placeholder="xxx-xxx-xxx" onblur="getphone()"/></td>
+                <td id="six"></td>
+            </tr>
+        </table>
+        <table class="tb2">
+            <tr>
+                <td style="font-size:25px;">Gender:</td>
+                <td style="text-align:left;"><input type="radio" id="male" name="gender" value="HTML">
+                <label for="html">Male</label><br>
+                <input type="radio" id="famele" name="gender" value="CSS">
+                <label for="css">Famele</label></td>
+
+                <td style="font-size:25px;">Want to learn:</td>
+                <td style="text-align:left;"><input type="checkbox" id="learn" name="learn" value="Bike">
+                    <label for="learn"> HTML</label><br>
+                    <input type="checkbox" id="learn2" name="learn2" value="Car">
+                    <label for="learn2"> CSS</label><br>
+                    <input type="checkbox" id="learn3" name="learn3" value="Boat">
+                    <label for="learn3"> Javascript</label><br>
+                    <input type="checkbox" id="learn4" name="learn4" value="Boat">
+                    <label for="learn4"> PHP</label><br>
+                    <input type="checkbox" id="learn5" name="learn5" value="Boat">
+                    <label for="learn5"> Python</label>
+                </td>
+            </tr>
+            <tr>
+               <td><label for="birthday">Birthday:</label></td>
+               <td><input type="date" id="birthday" name="birthday"></td>
+               <td><label for="country">Country:</label></td>
+               <td><select id="country" name="country">
+                  <option value="us">US</option>
+                  <option value="jp">Japan</option>
+                  <option value="sk">South Korean</option>
+                  <option value="egy">Egypt</option>
+                </select></td>
+            </tr>
+        </table>
+        <div>
+            <h2>Comments:</h2>
+            <textarea style="resize: none;" name="message" rows="10" cols="100">Enter your comments about our site.</textarea>
+        </div>
+             
+            <p>Done</p>
+        
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
