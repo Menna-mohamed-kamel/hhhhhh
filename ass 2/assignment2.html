@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+      h2{
+        font-size: 50px;
+        color: brown;
+        border-bottom: 1px dotted burlywood;
+      }
+      #pre{
+        font-size: 40px;
+        color: chocolate;
+      }
+      #output{
+        font-size: 30px;
+        color: darkgreen;
+        
+
+      }
+  </style>
+  <script>
+    function check(){
+       var num = document.getElementById("input").value;
+
+       if(num % 2 == 0)
+        document.getElementById("output").innerHTML="The number is even.";
+       else
+        document.getElementById("output").innerHTML="The number is odd.";
+
+
+
+    }
+  </script>
+</head>
+<body onload="alert('loaded successlly')">
+  
+    <h2>Check the number:</h2>
+
+    <p id="pre">This program checks if number is even or odd.</p>
+    <input type="number" id="input"/> <button onclick="check();"> check </button>
+    <p id="output"></p>
+  
+
+</body>
+</html>
